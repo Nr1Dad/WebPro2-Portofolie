@@ -1,19 +1,25 @@
-//Code for importing data from DMI using API
-
+//Code for importing data from DMI using API and for using MongoDB
 import { error } from "console";
 import { promises as fs } from "fs";
 import { json } from "stream/consumers";
 import path from "path";
+import {MongoClient} from "mongodb";
 
 
 //The url. Contains both API key and query request. We can chance this depending on what information we want to get from the api. Query is needed unless we want a million random weather data xD
 const url = "https://dmigw.govcloud.dk/v2/metObs/collections/observation/items?api-key=b716f5e5-6105-4382-9077-10efa88df0c3&parameterId=weather&limit=3";
 
+//Json files
 const inputFile = path.resolve("weather_data.json")
-
 const outputFile = path.resolve("weather_data_clean.json")
 
-export async function fetchAndSaveWeatherData()
+//MongoDB
+const Mongo_Connection = "mongodb://localhost:27017"; //Standart local host for MongoDB Database
+const DB_Name = "weatherDB"; //Database name
+const Collection_Name = "dmi_weather_data"; //Collection name
+
+
+async function fetchAndSaveWeatherData()
 {
     try{
     const response = await fetch(url); //Makes HTTP request and waits for a response. The response is stored in response object.
@@ -56,7 +62,7 @@ function findArrayObject(obj){
 }
 
 //Function to make the JSON from GEOjson to MongoDB readable JSON file
-export async function makeCleanFile(){
+async function makeCleanFile(){
     try {
         //read the input file ad parse it to json
         const rawData = await fs.readFile(inputFile, "utf8");
@@ -65,6 +71,7 @@ export async function makeCleanFile(){
         //If jsonFile is already an array just put it in directly
         if (Array.isArray(jsonFile)){
             await fs.writeFile(outputFile, JSON.stringify(jsonFile, null, 2), "utf8");
+            return jsonFile;
         }
 
         //if it's not already an array, find an array. If we don't find one throw error
@@ -76,6 +83,7 @@ export async function makeCleanFile(){
         //Write the array to the clean file
         const doc = arrayObj.array;
         await fs.writeFile(outputFile, JSON.stringify(doc, null, 2), "utf8");
+        return doc;
 
     } catch (error) { //if any fails exit the code
         console.error("failed to make clean JSON file");
@@ -83,7 +91,40 @@ export async function makeCleanFile(){
     }
 }
 
-//Run functions
-await fetchAndSaveWeatherData();
-await makeCleanFile();
+//Function for adding data to MongoDB database
+async function exportDataToMongoDB(docs){
+    const Client = new MongoClient(Mongo_Connection);
 
+    try{
+        await Client.connect(); //Try to connect to mongoDB
+
+        //Get the name of the database and the collection
+        const db = Client.db(DB_Name);
+        const collecton = db.collection(Collection_Name);
+
+        if (!Array.isArray(docs)){ //check if the document passed in the argument actually is an array
+            console.log("not an array docs");
+            return;
+        }
+
+        await collecton.insertMany(docs); //Insert the data from the passed document to the mongoDB database
+        console.log("Yay!");
+
+    } catch(error){
+        console.error(error); //catch any potential errors
+    } finally{
+        console.log("Closing connection");
+        await Client.close(); //close the connection. Done in finally to make sure it runs regardless of errors.
+    }
+
+}
+
+//Run all functions
+export async function getData(){
+    await fetchAndSaveWeatherData();
+    const cleanJson = await makeCleanFile();
+    await exportDataToMongoDB(cleanJson);
+}
+
+
+//getData();
