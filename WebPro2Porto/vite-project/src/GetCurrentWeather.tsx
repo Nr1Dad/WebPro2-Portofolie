@@ -1,3 +1,8 @@
+// @ts-ignore
+import {fetchAndSaveWeatherData} from "./FetchData";
+// @ts-ignore
+import {makeCleanFile} from "./FetchData";
+
 function GetCurrentWeatherBtn () {
 
     return(
@@ -10,6 +15,8 @@ function GetCurrentWeatherBtn () {
     </>
     );
 }
+
+
 
 export default GetCurrentWeatherBtn;
 
