@@ -1,12 +1,14 @@
+
 function WeatherCard () {
 
     return(
     <>
         <div className="card">
-            <img src="..." className="card-img-top" alt="..."></img>
+            <img src="Icons\sun.png" className="card-img-top" style={{width: "100px", height: "100px"}}></img>
             <div className="card-body">
-                <h5 className="card-title">Current Weather</h5>
-                <p className="card-text">Text Descriping The Weather</p>
+                <h5 className="card-title"> type of weather </h5>
+                <p className="card-text"> Timestamp </p>
+                <p className="card-text"> Temperatur </p>
                 <a href="#" className="btn btn-primary"> View Weather History </a>
             </div>
         </div>

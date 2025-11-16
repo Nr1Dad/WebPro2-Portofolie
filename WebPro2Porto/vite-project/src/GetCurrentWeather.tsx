@@ -1,4 +1,5 @@
 import App from "./App";
+import WeatherCard from "./WeatherCard";
 
 function GetCurrentWeatherBtn () {
 
@@ -29,6 +30,15 @@ async function handleUpdateClick(): Promise<void> {
       //Post what error occured in the console
       console.error("Error while calling backend:", error)
     }
+
+    loadWeatherCard();
+
+  }
+  
+  async function loadWeatherCard(){
+
+    return <div> <WeatherCard></WeatherCard></div>
+
   }
 
 export default GetCurrentWeatherBtn;
