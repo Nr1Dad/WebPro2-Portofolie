@@ -1,9 +1,8 @@
 import React from "react";
 
 export interface WeatherData {
-  typeOfWeather: string;
-  timestamp: string;
-  temperature: number;
+  value: string;
+  created: string;
 }
 
 interface WeatherCardProps {
@@ -25,7 +24,7 @@ const weatherIcons: Record <string, string> = {
 const defaultIcon = "Icons/sharknado.png"
 
 function WeatherCard({ data }: WeatherCardProps) {
-     const icon = weatherIcons[data.typeOfWeather] || defaultIcon;
+     const icon = weatherIcons[data.value] || defaultIcon;
 
   return (
     <div className="card">
@@ -33,13 +32,12 @@ function WeatherCard({ data }: WeatherCardProps) {
         src={icon}
         className="card-img-top"
         style={{ width: "100px", height: "100px" }}
-        alt={data.typeOfWeather}
+        alt={data.value}
       />
 
       <div className="card-body">
-        <h5 className="card-title">{data.typeOfWeather}</h5>
-        <p className="card-text">Timestamp: {data.timestamp}</p>
-        <p className="card-text">Temperature: {data.temperature}°C</p>
+        <h5 className="card-title">{data.value}</h5>
+        <p className="card-text">Timestamp: {data.created}</p>
         <button className="btn btn-primary">View Weather History</button>
       </div>
     </div>

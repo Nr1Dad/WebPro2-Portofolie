@@ -7,7 +7,7 @@ function GetCurrentWeatherBtn() {
 
   async function handleUpdateClick() {
     try {
-      const response = await fetch("/api/getData");
+      const response = await fetch("/api/getLatestWeather");
       if (!response.ok) {
         throw new Error(`Server response: ${response.status} ${response.statusText}`);
       }
@@ -22,7 +22,7 @@ function GetCurrentWeatherBtn() {
   return (
     <>
       <button onClick={handleUpdateClick}>Get Current Weather</button>
-
+      
       {weatherData && <WeatherCard data={weatherData} />}
     </>
   );
