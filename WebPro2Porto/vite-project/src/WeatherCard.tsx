@@ -24,6 +24,8 @@ const weatherIcons: Record <string, string> = {
 const defaultIcon = "Icons/sharknado.png"
 
 function WeatherCard({ data }: WeatherCardProps) {
+    const iconKey = data.value;
+
      const icon = weatherIcons[data.value] || defaultIcon;
 
   return (
@@ -38,7 +40,6 @@ function WeatherCard({ data }: WeatherCardProps) {
       <div className="card-body">
         <h5 className="card-title">{data.value}</h5>
         <p className="card-text">Timestamp: {data.created}</p>
-        <button className="btn btn-primary">View Weather History</button>
       </div>
     </div>
   );
