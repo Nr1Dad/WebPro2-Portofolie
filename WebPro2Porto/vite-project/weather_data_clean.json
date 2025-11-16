@@ -1,56 +1,92 @@
 [
   {
     "type": "Feature",
-    "id": "72e70d4a-ffc9-c956-2c3c-e5f0781bfbf3",
+    "id": "436fd652-2241-c8fe-2478-1f772973909e",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        9.8882,
-        55.2444
+        11.3879,
+        55.3224
       ]
     },
     "properties": {
       "parameterId": "weather",
-      "created": "2025-08-23T18:43:45.886836Z",
-      "value": 110,
-      "observed": "2005-08-23T06:10:00Z",
-      "stationId": "06123"
+      "created": "2025-08-12T19:39:45.014065Z",
+      "value": 123,
+      "observed": "2016-09-29T16:30:00Z",
+      "stationId": "06135"
     }
   },
   {
     "type": "Feature",
-    "id": "7eca5d28-34b7-154f-aafb-9700e783bb45",
+    "id": "4cbaf126-9752-4cd0-1493-56d18cd84250",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        8.215,
-        56.7068
+        11.8605,
+        55.2075
       ]
     },
     "properties": {
       "parameterId": "weather",
-      "created": "2025-08-23T18:43:45.807502Z",
-      "value": 110,
-      "observed": "2005-08-23T06:10:00Z",
-      "stationId": "06052"
+      "created": "2025-08-12T19:39:45.01227Z",
+      "value": 181,
+      "observed": "2016-09-29T16:30:00Z",
+      "stationId": "06154"
     }
   },
   {
     "type": "Feature",
-    "id": "09ca5c95-399e-94a6-9be3-d124c95df935",
+    "id": "59b5fe79-7654-5600-1540-209d7a8803fa",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        10.0929,
-        56.5604
+        10.6316,
+        57.7364
       ]
     },
     "properties": {
       "parameterId": "weather",
-      "created": "2025-08-23T18:40:30.500265Z",
-      "value": 110,
-      "observed": "2005-08-24T04:00:00Z",
-      "stationId": "06049"
+      "created": "2025-08-12T19:39:45.014906Z",
+      "value": 181,
+      "observed": "2016-09-29T16:30:00Z",
+      "stationId": "06041"
+    }
+  },
+  {
+    "type": "Feature",
+    "id": "68e11fe4-a056-00c8-9e06-388031654fe8",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -52.8517,
+        68.7081
+      ]
+    },
+    "properties": {
+      "parameterId": "weather",
+      "created": "2025-08-12T19:39:45.014741Z",
+      "value": 151,
+      "observed": "2016-09-29T16:30:00Z",
+      "stationId": "04220"
+    }
+  },
+  {
+    "type": "Feature",
+    "id": "7b12ba65-49ef-215a-17a8-6edec316f3e3",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        14.7718,
+        55.2979
+      ]
+    },
+    "properties": {
+      "parameterId": "weather",
+      "created": "2025-08-12T19:39:45.014519Z",
+      "value": 181,
+      "observed": "2016-09-29T16:30:00Z",
+      "stationId": "06193"
     }
   }
 ]

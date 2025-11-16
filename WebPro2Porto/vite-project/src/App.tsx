@@ -4,7 +4,7 @@ import React, { useState, type JSX } from "react";
 
 function App (): JSX.Element {
 
-  async function handleUpdateClick(): Promise<void> {
+  /*async function handleUpdateClick(): Promise<void> {
     try {
       //Call the endpoint that runs getData()
       const response = await fetch("http://localhost:3000/api/getData");
@@ -18,7 +18,7 @@ function App (): JSX.Element {
       //Post what error occured in the console
       console.error("Error while calling backend:", error)
     }
-  }
+  }*/
 
 
   return <div> <GetCurrentWeatherBtn/> <WeatherCard/> </div>

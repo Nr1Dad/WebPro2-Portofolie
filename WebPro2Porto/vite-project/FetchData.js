@@ -7,7 +7,7 @@ import {MongoClient} from "mongodb";
 
 
 //The url. Contains both API key and query request. We can chance this depending on what information we want to get from the api. Query is needed unless we want a million random weather data xD
-const url = "https://dmigw.govcloud.dk/v2/metObs/collections/observation/items?api-key=b716f5e5-6105-4382-9077-10efa88df0c3&parameterId=weather&limit=3";
+const url = "https://dmigw.govcloud.dk/v2/metObs/collections/observation/items?api-key=b716f5e5-6105-4382-9077-10efa88df0c3&parameterId=weather&limit=5";
 
 //Json files
 const inputFile = path.resolve("weather_data.json")
