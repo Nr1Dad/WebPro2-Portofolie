@@ -19,7 +19,7 @@ const weatherIcons: Record <string, string> = {
     Cloudy: "Icons/clouds.png"
 };
 
-const defaultIcon = "Icons/sharknado"
+const defaultIcon = "Icons/sharknado.png"
 
 function WeatherCard({ data }: WeatherCardProps) {
      const icon = weatherIcons[data.typeOfWeather] || defaultIcon;

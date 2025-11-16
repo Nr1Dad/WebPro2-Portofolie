@@ -107,8 +107,13 @@ async function exportDataToMongoDB(docs){
             return;
         }
 
-        await collecton.insertMany(docs); //Insert the data from the passed document to the mongoDB database
+        const result = await collecton.insertMany(docs); //Insert the data from the passed document to the mongoDB database
         console.log("Yay!");
+
+        const insertedIds = Object.values(result.insertedIds); //Get data back from the database for displaying on website
+        const insertedDoc = await collection.find({ _id: { $in: insertedIds } }).toArray();
+
+        return insertedDoc;
 
     } catch(error){
         console.error(error); //catch any potential errors
@@ -116,7 +121,6 @@ async function exportDataToMongoDB(docs){
         console.log("Closing connection");
         await Client.close(); //close the connection. Done in finally to make sure it runs regardless of errors.
     }
-
 }
 
 //Run all functions
