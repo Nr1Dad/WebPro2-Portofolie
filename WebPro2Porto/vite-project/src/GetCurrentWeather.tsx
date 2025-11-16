@@ -13,6 +13,7 @@ function GetCurrentWeatherBtn() {
       }
 
       const data: WeatherData = await response.json();
+      console.log("Received from backend:", data);
       setWeatherData(data);
     } catch (error) {
       console.error("Error while fetching weather:", error);
