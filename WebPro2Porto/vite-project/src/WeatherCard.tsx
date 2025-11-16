@@ -16,7 +16,10 @@ const weatherIcons: Record <string, string> = {
     Rainy: "Icons/rain.png",
     Snowy: "Icons/snow.png",
     Thunder: "Icons/thunder.png",
-    Cloudy: "Icons/clouds.png"
+    Cloudy: "Icons/clouds.png",
+    Misty:"Icons/mist.png",
+    Windy: "Icons/wind.png",
+    Moon: "Icons/Moon.png"
 };
 
 const defaultIcon = "Icons/sharknado"
