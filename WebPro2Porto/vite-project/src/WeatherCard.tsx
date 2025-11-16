@@ -11,14 +11,14 @@ interface WeatherCardProps {
 
 const weatherIcons: Record <string, string> = {
 
-    Sunny: "Icons/sun.png",
-    Rainy: "Icons/rain.png",
-    Snowy: "Icons/snow.png",
-    Thunder: "Icons/thunder.png",
-    Cloudy: "Icons/clouds.png",
-    Misty:"Icons/mist.png",
-    Windy: "Icons/wind.png",
-    Moon: "Icons/Moon.png"
+    Sunny: "Public/sun.png",
+    Rainy: "Public/rain.png",
+    Snowy: "Public/snow.png",
+    Thunder: "Public/thunder.png",
+    Cloudy: "Public/clouds.png",
+    Misty:"Public/mist.png",
+    Windy: "Public/wind.png",
+    Moon: "Public/Moon.png"
 };
 
 const defaultIcon = "Icons/sharknado.png"
