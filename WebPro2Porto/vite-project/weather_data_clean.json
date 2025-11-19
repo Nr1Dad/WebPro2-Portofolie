@@ -1,92 +1,20 @@
 [
   {
     "type": "Feature",
-    "id": "436fd652-2241-c8fe-2478-1f772973909e",
+    "id": "718f616a-fb12-faa2-fc89-eddcb7d531aa",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        11.3879,
-        55.3224
+        -49.6708,
+        62.0147
       ]
     },
     "properties": {
       "parameterId": "weather",
-      "created": "2025-08-12T19:39:45.014065Z",
+      "created": "2025-11-19T07:00:08.418829Z",
       "value": 123,
-      "observed": "2016-09-29T16:30:00Z",
-      "stationId": "06135"
-    }
-  },
-  {
-    "type": "Feature",
-    "id": "4cbaf126-9752-4cd0-1493-56d18cd84250",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        11.8605,
-        55.2075
-      ]
-    },
-    "properties": {
-      "parameterId": "weather",
-      "created": "2025-08-12T19:39:45.01227Z",
-      "value": 181,
-      "observed": "2016-09-29T16:30:00Z",
-      "stationId": "06154"
-    }
-  },
-  {
-    "type": "Feature",
-    "id": "59b5fe79-7654-5600-1540-209d7a8803fa",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        10.6316,
-        57.7364
-      ]
-    },
-    "properties": {
-      "parameterId": "weather",
-      "created": "2025-08-12T19:39:45.014906Z",
-      "value": 181,
-      "observed": "2016-09-29T16:30:00Z",
-      "stationId": "06041"
-    }
-  },
-  {
-    "type": "Feature",
-    "id": "68e11fe4-a056-00c8-9e06-388031654fe8",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -52.8517,
-        68.7081
-      ]
-    },
-    "properties": {
-      "parameterId": "weather",
-      "created": "2025-08-12T19:39:45.014741Z",
-      "value": 151,
-      "observed": "2016-09-29T16:30:00Z",
-      "stationId": "04220"
-    }
-  },
-  {
-    "type": "Feature",
-    "id": "7b12ba65-49ef-215a-17a8-6edec316f3e3",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        14.7718,
-        55.2979
-      ]
-    },
-    "properties": {
-      "parameterId": "weather",
-      "created": "2025-08-12T19:39:45.014519Z",
-      "value": 181,
-      "observed": "2016-09-29T16:30:00Z",
-      "stationId": "06193"
+      "observed": "2025-11-19T07:00:00Z",
+      "stationId": "04260"
     }
   }
 ]

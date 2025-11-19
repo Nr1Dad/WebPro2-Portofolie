@@ -7,7 +7,7 @@ import {MongoClient} from "mongodb";
 
 
 //The url. Contains both API key and query request. We can chance this depending on what information we want to get from the api. Query is needed unless we want a million random weather data xD
-const url = "https://dmigw.govcloud.dk/v2/metObs/collections/observation/items?api-key=b716f5e5-6105-4382-9077-10efa88df0c3&parameterId=weather&limit=5";
+const url = "https://dmigw.govcloud.dk/v2/metObs/collections/observation/items?api-key=b716f5e5-6105-4382-9077-10efa88df0c3&parameterId=weather&limit=1";
 
 //Json files
 const inputFile = path.resolve("weather_data.json")
@@ -24,7 +24,10 @@ async function fetchAndSaveWeatherData()
     try{
     const response = await fetch(url); //Makes HTTP request and waits for a response. The response is stored in response object.
     if (!response.ok){ //check if an error occured while trying to call the API, ex. 404. If an error occured stop running the function and send error message.
-        throw new Error(`HTTP ${response.status} - ${response.statusText}`) //returns the error status and error text; ex. "HTTP 404 - Not Found"
+        //throw new Error(`HTTP ${response.status} - ${response.statusText}`) //returns the error status and error text; ex. "HTTP 404 - Not Found"
+        const body = await response.text();
+        console.error("DMI API error body:", body);
+        throw new Error(`HTTP ${response.status} - ${response.statusText}`);
     }
 
     const data = await response.json(); //reads file and parses to JSON. If the data is not in valid JSON format throw error instead.
@@ -33,7 +36,8 @@ async function fetchAndSaveWeatherData()
     console.log("Successfully called and stored data :)");
     }
     catch(error){
-        console.error("Error fetching weather data", error);
+        console.error("Error fetching weather data:");
+        console.error(error);
     }
 }
 
@@ -47,7 +51,7 @@ function findArrayObject(obj){
     }
 
     //DMI outputs GEOjson format, so we make the data ready for MongoDB
-    if (Array.isArray(obj.features && obj.features.length > 0 && obj.features[0] && obj.features[0].properties))  //Check if the array we found has features and properties and isn't empty
+    if (Array.isArray(obj.features) && obj.features.length > 0 && obj.features[0].properties)  //Check if the array we found has features and properties and isn't empty
     {
         const mappedArray = obj.features.map(function (f) {  //Map the features to a new array. If it has properties map those with their values else just map f
             if (f.properties !== null && f.properties !== undefined){
@@ -100,14 +104,14 @@ async function exportDataToMongoDB(docs){
 
         //Get the name of the database and the collection
         const db = Client.db(DB_Name);
-        const collecton = db.collection(Collection_Name);
+        const collection = db.collection(Collection_Name);
 
         if (!Array.isArray(docs)){ //check if the document passed in the argument actually is an array
             console.log("not an array docs");
             return;
         }
 
-        const result = await collecton.insertMany(docs); //Insert the data from the passed document to the mongoDB database
+        const result = await collection.insertMany(docs); //Insert the data from the passed document to the mongoDB database
         console.log("Yay!");
 
         const insertedIds = Object.values(result.insertedIds); //Get data back from the database for displaying on website

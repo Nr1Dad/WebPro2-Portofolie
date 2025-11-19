@@ -29,7 +29,7 @@ function weatherCodeToWord(code){
 router.get("/getWeatherHistory", async (req, res) => {
     try {
         const collection = await getDBcollection();
-        const documents = await collection.find({}).sort({timeStamp: -1}).limit(10).toArray();
+        const documents = await collection.find({}).sort({"properties.observed": -1}).limit(10).toArray();
 
         const normalized = documents.map(doc => {
             const props = doc.properties ?? {};
@@ -48,7 +48,7 @@ router.get("/getWeatherHistory", async (req, res) => {
 router.get("/getLatestWeather", async (req, res) => {
     try {
         const collection = await getDBcollection();
-        const latestDocuments = await collection.find({}).sort({timeStamp: -1}).limit(1).toArray();
+        const latestDocuments = await collection.find({}).sort({"properties.observed": -1}).limit(1).toArray();
 
         const latest = latestDocuments.length > 0 ? latestDocuments[0] : null;
         console.log("LATEST FROM MONGO:", latest);

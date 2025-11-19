@@ -12,7 +12,7 @@ const styles = {
 };
 
 
-function GetWeatherHistory(){
+function GetWeatherHistory(){ 
     const [history, setHistory] = useState<WeatherData[]>([]);
     const [showHistory, setShowHistory] = useState(false);
 
