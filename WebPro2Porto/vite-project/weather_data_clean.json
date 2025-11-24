@@ -1,20 +1,20 @@
 [
   {
     "type": "Feature",
-    "id": "718f616a-fb12-faa2-fc89-eddcb7d531aa",
+    "id": "0efde236-015d-e95d-baac-138ac50f0212",
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -49.6708,
-        62.0147
+        9.988,
+        54.8528
       ]
     },
     "properties": {
       "parameterId": "weather",
-      "created": "2025-11-19T07:00:08.418829Z",
-      "value": 123,
-      "observed": "2025-11-19T07:00:00Z",
-      "stationId": "04260"
+      "created": "2025-11-22T13:20:57.716597Z",
+      "value": 100,
+      "observed": "2025-11-22T13:20:00Z",
+      "stationId": "06119"
     }
   }
 ]
