@@ -15,7 +15,7 @@ async function getDBcollection() {
     return db.collection("dmi_weather_data")
 }
 
-function weatherCodeToWord(code){
+function weatherCodeToWord(code){ //We're sorry for this horror :/
     if (code === 0 || code === 1 || code === 100 || code === 101) return "Sunny"
     else if (code === 3 || code === 4 || code === 103 || code === 104 || code === 105) return "Coudy"
     else if (code === 5 || code >= 10 && code <= 12 || code === 28 || code >= 40 && code <= 49 || code === 110 || code === 120 || code >= 130 && code <= 135) return "Misty"
